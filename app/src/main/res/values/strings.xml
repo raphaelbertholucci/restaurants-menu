@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Restaurants Menu</string>
+    <string name="generic_error">Unexpected error occurred. Try again later.</string>
+    <string name="menu">Menu</string>
 </resources>

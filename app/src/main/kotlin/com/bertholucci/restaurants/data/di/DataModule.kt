@@ -1,4 +1,4 @@
-package com.bertholucci.restaurants.di
+package com.bertholucci.restaurants.data.di
 
 import com.bertholucci.restaurants.BuildConfig
 import com.bertholucci.restaurants.data.RestaurantsMenuApi

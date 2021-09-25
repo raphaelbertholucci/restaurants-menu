@@ -3,5 +3,31 @@
     <style name="Theme.Restaurants" parent="Theme.MaterialComponents.NoActionBar">
         <item name="android:windowBackground">@color/white</item>
         <item name="android:statusBarColor">@color/black</item>
+        <item name="android:colorPrimary">@color/black</item>
+    </style>
+
+    <style name="Title">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">@dimen/default_title</item>
+        <item name="android:fontFamily">@font/mitr_extra_light</item>
+    </style>
+
+    <style name="MenuTitle">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/medium_title</item>
+        <item name="android:fontFamily">@font/playfair_regular</item>
+    </style>
+
+    <style name="MenuDescription">
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">@dimen/default_title</item>
+        <item name="android:fontFamily">@font/playfair_regular</item>
+    </style>
+
+    <style name="MenuPrice">
+        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">@dimen/normal_title</item>
+        <item name="android:fontFamily">@font/mitr_extra_light</item>
     </style>
 </resources>
