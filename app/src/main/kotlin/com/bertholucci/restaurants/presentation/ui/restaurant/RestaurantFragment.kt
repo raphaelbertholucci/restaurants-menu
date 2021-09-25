@@ -1,6 +1,7 @@
 package com.bertholucci.restaurants.presentation.ui.restaurant
 
 import android.os.Bundle
+import android.util.DisplayMetrics
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -13,6 +14,7 @@ import com.bertholucci.restaurants.presentation.extensions.showSnack
 import com.bertholucci.restaurants.presentation.extensions.toArrayList
 import com.bertholucci.restaurants.presentation.model.Menu
 import com.bertholucci.restaurants.presentation.model.Restaurant
+import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -42,9 +44,15 @@ class RestaurantFragment : BaseFragment<FragmentRestaurantBinding>() {
             lifecycle,
             getFragmentsList(restaurant.menus.first())
         )
+        setupTabLayout(restaurant)
+    }
+
+    private fun setupTabLayout(restaurant: Restaurant) {
         TabLayoutMediator(binding.tabMenu, binding.vpMenu) { tab, position ->
             tab.text = restaurant.menus.first().sections[position].name
         }.attach()
+        binding.tabMenu.tabGravity = TabLayout.GRAVITY_FILL
+        binding.tabMenu.tabMode = TabLayout.MODE_SCROLLABLE
     }
 
     private fun getFragmentsList(menu: Menu): List<Fragment> {
