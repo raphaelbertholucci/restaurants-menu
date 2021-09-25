@@ -10,7 +10,7 @@ class RestaurantDomain(
     val cuisines: List<String> = emptyList(),
     val address: AddressDomain = AddressDomain(),
     val geo: GeoDomain = GeoDomain(),
-    val menus: MenuDomain,
+    val menus: List<MenuDomain>,
     val lastUpdated: String
 )
 

@@ -12,6 +12,6 @@ class RestaurantResponse(
     @SerializedName("cuisines") val cuisines: List<String>?,
     @SerializedName("address") val address: AddressResponse?,
     @SerializedName("geo") val geo: GeoResponse?,
-    @SerializedName("menus") val menus: MenuResponse?,
+    @SerializedName("menus") val menus: List<MenuResponse>?,
     @SerializedName("last_updated") val lastUpdated: String?
 )

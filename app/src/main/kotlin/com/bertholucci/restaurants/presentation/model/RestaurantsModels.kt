@@ -13,7 +13,7 @@ class Restaurant(
     val cuisines: List<String> = emptyList(),
     val address: Address = Address(),
     val geo: Geo = Geo(),
-    val menus: Menu,
+    val menus: List<Menu>,
     val lastUpdated: String
 )
 

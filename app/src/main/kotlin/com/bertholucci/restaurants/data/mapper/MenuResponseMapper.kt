@@ -16,4 +16,8 @@ class MenuResponseMapper : BaseMapper<MenuResponse?, MenuDomain> {
             sections = MenuSectionResponseMapper().mapToDomainList(model?.sections)
         )
     }
+
+    fun mapToDomainList(list: List<MenuResponse>?) = list?.map {
+        mapToDomain(it)
+    } ?: emptyList()
 }

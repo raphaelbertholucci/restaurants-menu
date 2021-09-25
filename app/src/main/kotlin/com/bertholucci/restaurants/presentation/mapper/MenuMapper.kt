@@ -16,4 +16,8 @@ class MenuMapper : BaseMapper<Menu, MenuDomain> {
     override fun mapToDomain(model: Menu): MenuDomain {
         throw UnsupportedOperationException("Unsupported Operation")
     }
+
+    fun mapFromDomainList(list: List<MenuDomain>) = list.map {
+        mapFromDomain(it)
+    }
 }

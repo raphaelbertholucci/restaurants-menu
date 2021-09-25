@@ -17,7 +17,7 @@ class RestaurantMapper : BaseMapper<Restaurant, RestaurantDomain> {
             cuisines = domain.cuisines,
             address = AddressMapper().mapFromDomain(domain.address),
             geo = GeoMapper().mapFromDomain(domain.geo),
-            menus = MenuMapper().mapFromDomain(domain.menus),
+            menus = MenuMapper().mapFromDomainList(domain.menus),
             lastUpdated = domain.lastUpdated
         )
     }

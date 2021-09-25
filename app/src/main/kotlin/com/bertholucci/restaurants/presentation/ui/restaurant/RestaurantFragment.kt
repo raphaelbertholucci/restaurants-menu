@@ -40,10 +40,10 @@ class RestaurantFragment : BaseFragment<FragmentRestaurantBinding>() {
         binding.vpMenu.adapter = RestaurantTabAdapter(
             childFragmentManager,
             lifecycle,
-            getFragmentsList(restaurant.menus)
+            getFragmentsList(restaurant.menus.first())
         )
         TabLayoutMediator(binding.tabMenu, binding.vpMenu) { tab, position ->
-            tab.text = restaurant.menus.sections[position].name
+            tab.text = restaurant.menus.first().sections[position].name
         }.attach()
     }
 

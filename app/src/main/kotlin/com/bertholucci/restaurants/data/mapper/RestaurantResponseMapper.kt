@@ -21,7 +21,7 @@ class RestaurantResponseMapper : BaseMapper<RestaurantResponse, RestaurantDomain
             cuisines = model.cuisines ?: emptyList(),
             address = AddressResponseMapper().mapToDomain(model.address),
             geo = GeoResponseMapper().mapToDomain(model.geo),
-            menus = MenuResponseMapper().mapToDomain(model.menus),
+            menus = MenuResponseMapper().mapToDomainList(model.menus),
             lastUpdated = model.lastUpdated ?: ""
         )
     }
