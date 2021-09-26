@@ -1,6 +1,6 @@
 package com.bertholucci.restaurants.domain.model
 
-class RestaurantDomain(
+data class RestaurantDomain(
     val name: String = "",
     val phone: String = "",
     val website: String = "",
@@ -14,7 +14,7 @@ class RestaurantDomain(
     val lastUpdated: String
 )
 
-class AddressDomain(
+data class AddressDomain(
     val city: String = "",
     val state: String = "",
     val postalCode: String = "",
@@ -22,30 +22,30 @@ class AddressDomain(
     val formatted: String = "",
 )
 
-class GeoDomain(
+data class GeoDomain(
     val lat: Double = 0.0,
     val lon: Double = 0.0,
 )
 
-class MenuDomain(
+data class MenuDomain(
     val name: String? = "",
     val sections: List<MenuSectionDomain> = emptyList()
 )
 
-class MenuSectionDomain(
+data class MenuSectionDomain(
     val name: String = "",
     val description: String = "",
     val items: List<MenuItemDomain> = emptyList()
 )
 
-class MenuItemDomain(
+data class MenuItemDomain(
     val name: String = "",
     val description: String = "",
     val price: Double = 0.0,
     val pricing: List<PricingDomain> = emptyList()
 )
 
-class PricingDomain(
+data class PricingDomain(
     val price: Double = 0.0,
     val currency: String = "",
     val priceString: String = "",

@@ -3,7 +3,7 @@ package com.bertholucci.restaurants.presentation.model
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
-class Restaurant(
+data class Restaurant(
     val name: String = "",
     val phone: String = "",
     val website: String = "",
@@ -17,7 +17,7 @@ class Restaurant(
     val lastUpdated: String
 )
 
-class Address(
+data class Address(
     val city: String = "",
     val state: String = "",
     val postalCode: String = "",
@@ -25,26 +25,26 @@ class Address(
     val formatted: String = "",
 )
 
-class Geo(
+data class Geo(
     val lat: Double = 0.0,
     val lon: Double = 0.0,
 )
 
 @Parcelize
-class Menu(
+data class Menu(
     val name: String? = "",
     val sections: List<MenuSection> = emptyList()
 ) : Parcelable
 
 @Parcelize
-class MenuSection(
+data class MenuSection(
     val name: String = "",
     val description: String = "",
     val items: List<MenuItem> = emptyList()
 ) : Parcelable
 
 @Parcelize
-class MenuItem(
+data class MenuItem(
     val name: String = "",
     val description: String = "",
     val price: Double = 0.0,
@@ -52,7 +52,7 @@ class MenuItem(
 ) : Parcelable
 
 @Parcelize
-class Pricing(
+data class Pricing(
     val price: Double = 0.0,
     val currency: String = "",
     val priceString: String = "",
