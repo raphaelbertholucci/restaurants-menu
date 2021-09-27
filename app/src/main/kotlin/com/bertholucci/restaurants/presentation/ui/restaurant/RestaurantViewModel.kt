@@ -24,8 +24,8 @@ class RestaurantViewModel(private val restaurantById: GetRestaurantById) : BaseV
         restaurantById(id)
             .onStart { showLoading() }
             .onCompletion { hideLoading() }
-            .map { _restaurant.value = Response.Success(RestaurantMapper().mapFromDomain(it)) }
-            .catch { _restaurant.value = Response.Failure(it) }
+            .map { _restaurant.postValue(Response.Success(RestaurantMapper().mapFromDomain(it))) }
+            .catch { _restaurant.postValue(Response.Failure(it)) }
             .launchIn(viewModelScope)
     }
 }

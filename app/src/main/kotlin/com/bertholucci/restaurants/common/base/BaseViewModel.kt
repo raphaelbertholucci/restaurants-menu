@@ -11,10 +11,10 @@ open class BaseViewModel : ViewModel() {
         get() = _loading
 
     fun showLoading() {
-        _loading.postValue(true)
+        _loading.value = true
     }
 
     fun hideLoading() {
-        _loading.postValue(false)
+        _loading.value = false
     }
 }

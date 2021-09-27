@@ -1,16 +1,14 @@
 package com.bertholucci.restaurants.presentation.ui.restaurant
 
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import com.bertholucci.restaurants.R
 import com.bertholucci.restaurants.common.base.BaseFragment
 import com.bertholucci.restaurants.common.fold
 import com.bertholucci.restaurants.databinding.FragmentRestaurantBinding
-import com.bertholucci.restaurants.presentation.extensions.showSnack
 import com.bertholucci.restaurants.presentation.extensions.toArrayList
 import com.bertholucci.restaurants.presentation.model.Menu
 import com.bertholucci.restaurants.presentation.model.Restaurant
@@ -27,6 +25,7 @@ class RestaurantFragment : BaseFragment<FragmentRestaurantBinding>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         addObservers()
+        addListeners()
 
         viewModel.getRestaurantById(4072702673999819)
     }
@@ -35,6 +34,14 @@ class RestaurantFragment : BaseFragment<FragmentRestaurantBinding>() {
         viewModel.restaurant.observe(viewLifecycleOwner) { response ->
             response.fold(::handleError, ::handleSuccess)
         }
+
+        viewModel.loading.observe(viewLifecycleOwner) {
+            display(loading = it)
+        }
+    }
+
+    private fun addListeners() {
+        binding.btnRetry.setOnClickListener { viewModel.getRestaurantById(4072702673999819) }
     }
 
     private fun handleSuccess(restaurant: Restaurant) {
@@ -45,6 +52,7 @@ class RestaurantFragment : BaseFragment<FragmentRestaurantBinding>() {
             getFragmentsList(restaurant.menus.first())
         )
         setupTabLayout(restaurant)
+        display(content = true)
     }
 
     private fun setupTabLayout(restaurant: Restaurant) {
@@ -65,6 +73,17 @@ class RestaurantFragment : BaseFragment<FragmentRestaurantBinding>() {
 
     private fun handleError(throwable: Throwable) {
         Log.d("ERROR", throwable.message.toString())
-        showSnack(R.string.generic_error)
+        display(error = true)
+    }
+
+    private fun display(
+        content: Boolean = false,
+        loading: Boolean = false,
+        error: Boolean = false
+    ) {
+        binding.group.isVisible = content
+        binding.progress.isVisible = loading
+        binding.tvError.isVisible = error
+        binding.btnRetry.isVisible = error
     }
 }

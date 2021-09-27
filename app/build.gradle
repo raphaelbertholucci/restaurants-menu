@@ -44,5 +44,8 @@ dependencies {
     androidTestImplementation testDependencies.junit_instrumentation
     androidTestImplementation testDependencies.mockk_android
     androidTestImplementation testDependencies.test_core
-    api testDependencies.espresso
+    androidTestImplementation testDependencies.espresso
+    debugImplementation (testDependencies.fragment_testing) {
+        exclude group: "androidx.test", module: "core"
+    }
 }
