@@ -1,7 +1,6 @@
 package com.bertholucci.restaurants.presentation.mapper
 
 import com.bertholucci.restaurants.common.base.BaseMapper
-import com.bertholucci.restaurants.data.model.MenuItemResponse
 import com.bertholucci.restaurants.domain.model.MenuItemDomain
 import com.bertholucci.restaurants.presentation.model.MenuItem
 

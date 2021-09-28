@@ -1,9 +1,7 @@
 package com.bertholucci.restaurants
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import io.mockk.MockKAnnotations
 import org.junit.After
-import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.koin.core.context.stopKoin
