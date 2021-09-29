@@ -6,8 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.bertholucci.restaurants.common.base.BaseFragment
 import com.bertholucci.restaurants.common.fold
+import com.bertholucci.restaurants.common.helpers.ERROR
 import com.bertholucci.restaurants.databinding.FragmentRestaurantBinding
 import com.bertholucci.restaurants.presentation.extensions.toArrayList
 import com.bertholucci.restaurants.presentation.model.Menu
@@ -18,6 +20,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class RestaurantFragment : BaseFragment<FragmentRestaurantBinding>() {
 
+    private val args: RestaurantFragmentArgs by navArgs()
     private val viewModel: RestaurantViewModel by viewModel()
 
     override fun getViewBinding() = FragmentRestaurantBinding.inflate(LayoutInflater.from(context))
@@ -27,7 +30,7 @@ class RestaurantFragment : BaseFragment<FragmentRestaurantBinding>() {
         addObservers()
         addListeners()
 
-        viewModel.getRestaurantById(4072702673999819)
+        viewModel.getRestaurantById(args.id)
     }
 
     private fun addObservers() {
@@ -41,7 +44,7 @@ class RestaurantFragment : BaseFragment<FragmentRestaurantBinding>() {
     }
 
     private fun addListeners() {
-        binding.btnRetry.setOnClickListener { viewModel.getRestaurantById(4072702673999819) }
+        binding.errorView.btnRetry.setOnClickListener { viewModel.getRestaurantById(args.id) }
     }
 
     private fun handleSuccess(restaurant: Restaurant) {
@@ -72,7 +75,7 @@ class RestaurantFragment : BaseFragment<FragmentRestaurantBinding>() {
     }
 
     private fun handleError(throwable: Throwable) {
-        Log.d("ERROR", throwable.message.toString())
+        Log.d(ERROR, throwable.message.toString())
         display(error = true)
     }
 
@@ -83,7 +86,6 @@ class RestaurantFragment : BaseFragment<FragmentRestaurantBinding>() {
     ) {
         binding.group.isVisible = content
         binding.progress.isVisible = loading
-        binding.tvError.isVisible = error
-        binding.btnRetry.isVisible = error
+        binding.errorView.errorGroup.isVisible = error
     }
 }

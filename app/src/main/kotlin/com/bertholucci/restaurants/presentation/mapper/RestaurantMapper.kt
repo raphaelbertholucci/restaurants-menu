@@ -25,4 +25,8 @@ class RestaurantMapper : BaseMapper<Restaurant, RestaurantDomain> {
     override fun mapToDomain(model: Restaurant): RestaurantDomain {
         throw UnsupportedOperationException("Unsupported Operation")
     }
+
+    fun mapFromDomainList(list: List<RestaurantDomain>?) = list?.map {
+        mapFromDomain(it)
+    } ?: emptyList()
 }

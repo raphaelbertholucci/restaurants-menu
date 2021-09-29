@@ -3,12 +3,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/restaurant_nav"
-    app:startDestination="@id/fragment_restaurant">
+    app:startDestination="@id/fragment_search">
+
+    <fragment
+        android:id="@+id/fragment_search"
+        android:name="com.bertholucci.restaurants.presentation.ui.search.SearchFragment"
+        android:label="SearchFragment"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/to_fragment_restaurant"
+            app:destination="@id/fragment_restaurant" />
+    </fragment>
 
     <fragment
         android:id="@+id/fragment_restaurant"
         android:name="com.bertholucci.restaurants.presentation.ui.restaurant.RestaurantFragment"
         android:label="RestaurantFragment"
-        tools:layout="@layout/fragment_restaurant" />
+        tools:layout="@layout/fragment_restaurant">
+        <argument
+            android:name="id"
+            app:argType="long" />
+    </fragment>
 
 </navigation>

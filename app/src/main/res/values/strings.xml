@@ -3,4 +3,9 @@
     <string name="generic_error">Unexpected error occurred. Try again later.</string>
     <string name="menu">Menu</string>
     <string name="retry"><u>Retry</u></string>
+    <string name="consult_price"><u>Consult the price</u></string>
+
+    <string name="search_example">Example: Dolce Vita</string>
+    <string name="search_info">Type at least 3 letters to search</string>
+    <string name="restaurants_loaded">Restaurants loaded!</string>
 </resources>

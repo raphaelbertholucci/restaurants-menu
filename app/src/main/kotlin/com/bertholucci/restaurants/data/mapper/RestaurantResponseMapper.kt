@@ -25,4 +25,8 @@ class RestaurantResponseMapper : BaseMapper<RestaurantResponse, RestaurantDomain
             lastUpdated = model.lastUpdated ?: ""
         )
     }
+
+    fun mapToDomainList(list: List<RestaurantResponse>?) = list?.map {
+        mapToDomain(it)
+    } ?: emptyList()
 }
