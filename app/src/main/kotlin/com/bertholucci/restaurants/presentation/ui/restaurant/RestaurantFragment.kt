@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.bertholucci.restaurants.common.base.BaseFragment
+import com.bertholucci.restaurants.common.extensions.addRipple
 import com.bertholucci.restaurants.common.fold
 import com.bertholucci.restaurants.common.helpers.ERROR
 import com.bertholucci.restaurants.databinding.FragmentRestaurantBinding
@@ -44,7 +45,13 @@ class RestaurantFragment : BaseFragment<FragmentRestaurantBinding>() {
     }
 
     private fun addListeners() {
-        binding.errorView.btnRetry.setOnClickListener { viewModel.getRestaurantById(args.id) }
+        binding.errorView.btnRetry.setOnClickListener {
+            viewModel.getRestaurantById(args.id)
+        }
+
+        binding.ivBack.setOnClickListener {
+            activity?.onBackPressed()
+        }
     }
 
     private fun handleSuccess(restaurant: Restaurant) {

@@ -44,7 +44,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
 
         binding.etSearch.doOnTextChanged { text, _, _, _ ->
             text?.let {
-                if (it.length >= 3) {
+                if (it.isNotEmpty()) {
                     viewModel.updatePage(1)
                     viewModel.searchRestaurants(text.toString())
                 }
@@ -111,7 +111,8 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         binding.rvRestaurants.isVisible = content
     }
 
-    private fun getQuery() = binding.etSearch.text.takeIf { it?.isNotEmpty() == true }.toString()
+    private fun getQuery() =
+        binding.etSearch.text.takeIf { it?.isNotEmpty() == true }?.toString()
 
     private fun setupEndlessScroll(layoutManager: LinearLayoutManager, adapter: SearchAdapter) {
         val endlessScrollListener = object : EndlessScrollListener(layoutManager) {
