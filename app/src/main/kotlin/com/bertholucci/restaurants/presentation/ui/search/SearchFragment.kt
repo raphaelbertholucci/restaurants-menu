@@ -33,7 +33,10 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>() {
         addObservers()
         setupAdapter()
         addListeners()
+    }
 
+    override fun onResume() {
+        super.onResume()
         viewModel.searchRestaurants(query = getQuery(), page = 1)
     }
 
