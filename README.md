@@ -14,4 +14,4 @@ To see a demo of the app running with some explanation of these following questi
 * <b>How did you build the project?</b>
 * <b>Why did you build it in that way?</b>
 
-Check this video: 
+Check this video: https://drive.google.com/file/d/1db9zGqZiie5dJLxmM2iQtaph0rtpqbWy/view?usp=sharing
